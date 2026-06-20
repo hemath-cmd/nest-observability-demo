@@ -10,7 +10,7 @@ import { RequestContextMiddleware } from './common/middleware/request-context.mi
 })
 export class AppModule {
   configure(consumer: MiddlewareConsumer) {
-    // எல்லா Route-க்கும் RequestContextMiddleware போடு
+    
     consumer
      .apply(RequestContextMiddleware)
      .forRoutes('*');

@@ -1,13 +1,13 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { AllExceptionsFilter } from './common/filters/all-exceptions.filter';
-import { LoggingInterceptor } from './common/interceptors/logging.interceptor';
+import { LoggingInterceptor } from './logging.interceptor';
 import { CompanyContextGuard } from './common/guards/company-context.guard';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // 3-யும் Global-ஆ Apply
+  
   app.useGlobalFilters(new AllExceptionsFilter());
   app.useGlobalInterceptors(new LoggingInterceptor());
   app.useGlobalGuards(new CompanyContextGuard());
